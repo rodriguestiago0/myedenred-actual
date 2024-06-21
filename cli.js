@@ -29,7 +29,7 @@ const printSyncedAccounts = () => {
  */
 module.exports = async (command, flags) => {
     if (!command) {
-        console.log('Try "thinkactual --help"');
+        console.log('Try "myedenredactual --help"');
         process.exit();
     }
 

@@ -1,5 +1,5 @@
 const { getAppConfigFromEnv, getConf } = require("./config");
-const { getTransactions } = require("./edebredService.js");
+const { getTransactions } = require("./edenredService.js");
 const { initialize, importTransactions, finalize, listAccounts  } = require("./actual.js");
 
 const appConfig = getAppConfigFromEnv();
@@ -13,7 +13,7 @@ async function importMyEdenredTransactions() {
         console.info("Importing transactions for account ", edenredAccountId)
         var mappedtransactions = await getTransactions(edenredAccountId)
         await importTransactions(actual, actualAccountID, mappedtransactions);
-    });
+    };
    
     await finalize(actual);
 }

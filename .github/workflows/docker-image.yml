@@ -30,7 +30,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: rodriguestiago0/tinkactual
+          images: rodriguestiago0/myedenredactual
 
 
       - name: Build and push Docker image

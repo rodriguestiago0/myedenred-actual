@@ -1,0 +1,26 @@
+{
+	"name": "actualplaid-cli",
+	"version": "0.0.5",
+	"description": "Import transactions from your bank accounts into Actual Budget via Plaid API",
+	"main": "cli.js",
+	"bin": {
+		"actualplaid": "cli.js"
+	},
+	"author": "Luke Herrington <lherrington100@gmail.com>",
+	"license": "MIT",
+	"dependencies": {
+		"@actual-app/api": "^6.6.0",
+		"better-opn": "^2.0.0",
+		"conf": "^7.1.1",
+		"cron-parser": "^4.9.0",
+		"date-fns": "^2.15.0",
+		"dotenv": "^16.3.1",
+		"inquirer": "^7.3.3",
+		"meow": "^7.0.1",
+		"node-cron": "^3.0.3",
+		"terminal-link": "^2.1.1"
+	},
+	"engines": {
+		"node": ">=10"
+	}
+}

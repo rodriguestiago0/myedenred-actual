@@ -12,6 +12,10 @@ async function importMyEdenredTransactions() {
     for (let [edenredAccountId, actualAccountID] of Object.entries(edenredMapping)) {
         console.info("Importing transactions for account ", edenredAccountId)
         var mappedtransactions = await getTransactions(edenredAccountId)
+        if (mappedtransactions.length == 0) {
+            console.info("No imported transactions");
+            continue;
+        }
         await importTransactions(actual, actualAccountID, mappedtransactions);
     };
    

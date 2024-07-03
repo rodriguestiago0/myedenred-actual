@@ -1,12 +1,12 @@
 {
-	"name": "actualplaid-cli",
+	"name": "myedenred-actual",
 	"version": "0.0.5",
-	"description": "Import transactions from your bank accounts into Actual Budget via Plaid API",
+	"description": "Import transactions from your My Edenred accounts into Actual Budget",
 	"main": "cli.js",
 	"bin": {
 		"actualplaid": "cli.js"
 	},
-	"author": "Luke Herrington <lherrington100@gmail.com>",
+	"author": "Tiago Rodrigues",
 	"license": "MIT",
 	"dependencies": {
 		"@actual-app/api": "^6.6.0",

@@ -1,4 +1,4 @@
-# tinkactual
+# My Edenred - actual
 
 ## Setup
 
@@ -24,11 +24,10 @@ You need to manually create the accounts inside Actual, and then map them to the
   Commands & Options
     ls               List currently syncing accounts
     import           Sync bank accounts to Actual Budget
-    config           Print the location of actualplaid the config file
-    --version        Print the version of actualplaid being used
+    config           Print the location of the config file
 
   Options for all commands
     --user, -u       Specify the user to load configs for
   Examples
-    $ myedenredactual import --account="My Checking" --since="2020-05-28"
+    $ myedenredactual import
 ```

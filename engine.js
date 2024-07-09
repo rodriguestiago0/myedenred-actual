@@ -6,7 +6,6 @@ const appConfig = getAppConfigFromEnv();
 config = getConf("default")
 
 async function importMyEdenredTransactions() {
-    const syncingData = config.get(`actualSync`) || {};
     const actual = await initialize(config);
     edenredMapping = appConfig.EDENRED_ACCOUNT_MAPPING
     for (let [edenredAccountId, actualAccountID] of Object.entries(edenredMapping)) {

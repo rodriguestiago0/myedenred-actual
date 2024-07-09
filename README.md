@@ -22,7 +22,6 @@ You need to manually create the accounts inside Actual, and then map them to the
     $ myedenredactual <command> <flags>
 
   Commands & Options
-    ls               List currently syncing accounts
     import           Sync bank accounts to Actual Budget
     config           Print the location of the config file
 

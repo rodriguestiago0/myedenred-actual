@@ -15,8 +15,8 @@ console.info("Defined cron is: ", cronExpression)
 const interval = parser.parseExpression(cronExpression);
 console.info('Next run:', interval.next().toISOString());
 
-cron.schedule(cronExpression, () => {
-    importMyEdenredTransactions();
+cron.schedule(cronExpression, async () => {
+    await importMyEdenredTransactions();
     console.info('Next run:', interval.next().toISOString());
 });
 

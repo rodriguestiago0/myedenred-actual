@@ -10,8 +10,6 @@ services:
   actual_server:
     container_name: myedenredactual
     image: docker.io/rodriguestiago0/myedenredactual
-    ports:
-      - '5006:5006'
     environment:
       - PUID=1003
       - PGID=100

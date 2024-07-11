@@ -1,5 +1,12 @@
 # My Edenred - actual
 
+This project will help you import transaction from your My Edenred prepaid card into actual budget app.
+
+You need to provide your username and password and specified what the cadence you want to import transactions.
+
+**Note**: Pending transaction are being imported as cleared. If the transaction is deleted after you need to delete manally from the actual budget.
+
+
 ## Setup
 
 -   Clone this repo!

@@ -1,9 +1,6 @@
 const { getAppConfigFromEnv } = require("./config");
 const actual = require("@actual-app/api");
 const fs = require("fs");
-let { q, runQuery } = require('@actual-app/api');
-
-
 const appConfig = getAppConfigFromEnv();
 
 /**

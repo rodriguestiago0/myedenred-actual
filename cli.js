@@ -1,8 +1,7 @@
-const { getAppConfigFromEnv, getConf } = require("./config.js");
+const {  getConf } = require("./config.js");
 const { importMyEdenredTransactions, init } = require("./engine.js");
 
 let config;
-const appConfig = getAppConfigFromEnv()
 
 const printSyncedAccounts = () => {
     const actualData = config.get("actualSync");

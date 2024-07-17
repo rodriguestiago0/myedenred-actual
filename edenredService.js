@@ -46,8 +46,8 @@ const getAllTransactions = async (token, accountId) => {
 }
 
 async function getTransactions(accountId) {
-    authorizationToken = await authenticate()
-    transactions = await getAllTransactions(authorizationToken, accountId)
+    //authorizationToken = await authenticate()
+    transactions = await getAllTransactions(appConfig.EDENRED_TOKEN, accountId)
     parsedTransactions = []
     transactions.forEach(transaction => {
         transactionID = crypto.createHash('sha256').update(transaction.transactionName+transaction.transactionDate+transaction.amount).digest('hex'); 

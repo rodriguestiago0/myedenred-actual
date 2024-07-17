@@ -1,19 +1,18 @@
 version: '3'
 services:
   actual_server:
-    container_name: tinkactual
-    image: docker.io/rodriguestiago0/tinkactual
+    container_name: myedenredactual
+    image: docker.io/rodriguestiago0/myedenredactual
     ports:
       - '5006:5006'
     environment:
       - PUID=1003
       - PGID=100
       - TZ=Europe/Lisbon
-      - TINK_CLIENT_ID=
-      - TINK_CLIENT_SECRET=
-      - TINK_USER_ID=
-      - TINK_ACTOR_ID=
-      - TINK_ACCOUNT_MAP= #comma separated vlue (Both TINK_ACCOUNT_MAP and ACTUAL_ACCOUNT_MAP need to have the same size)
+      #- EDENRED_USERNAME= deprecated for now
+      #- EDENRED_PASSWORD=deprecated for now
+      - EDENRED_TOKEN=
+      - EDENRED_ACCOUNT_MAP= #comma separated vlue (Both EDENRED_ACCOUNT_MAP and ACTUAL_ACCOUNT_MAP need to have the same size)
       - ACTUAL_ACCOUNT_MAP= #comma separated vlue
       - ACTUAL_SERVER_URL= 
       - ACTUAL_SERVER_PASSWORD=

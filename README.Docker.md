@@ -14,8 +14,9 @@ services:
       - PUID=1003
       - PGID=100
       - TZ=Europe/Lisbon
-      - EDENRED_USERNAME=
-      - EDENRED_PASSWORD=
+      #- EDENRED_USERNAME= deprecated for now
+      #- EDENRED_PASSWORD= deprecated for now
+      - EDENRED_TOKEN=
       - EDENRED_ACCOUNT_MAP=comma separated vlue (Both EDENRED_ACCOUNT_MAP and ACTUAL_ACCOUNT_MAP need to have the same size)
       - ACTUAL_ACCOUNT_MAP=#comma separated vlue
       - ACTUAL_SERVER_URL= 
@@ -27,8 +28,7 @@ services:
 
 ```
 docker run -d --name myedenredactual \
-    - e 'EDENRED_USERNAME=' \
-    - e 'EDENRED_PASSWORD=' \
+    - e 'EDENRED_TOKEN=' \
     - e 'EDENRED_ACCOUNT_MAP=' \
     - e 'ACTUAL_ACCOUNT_MAP=' \
     - e 'ACTUAL_SERVER_URL= ' \

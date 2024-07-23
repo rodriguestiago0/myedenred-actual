@@ -16,6 +16,7 @@ services:
       - TZ=Europe/Lisbon
       - EDENRED_USERNAME= 
       - EDENRED_PIN= 
+      - EDENRED_VERSION= # default 4.1.0
       - EDENRED_ACCOUNT_MAP=comma separated vlue (Both EDENRED_ACCOUNT_MAP and ACTUAL_ACCOUNT_MAP need to have the same size)
       - ACTUAL_ACCOUNT_MAP=#comma separated vlue
       - ACTUAL_SERVER_URL= 
@@ -29,6 +30,7 @@ services:
 docker run -d --name myedenredactual \
     - e 'EDENRED_USERNAME=' \
     - e 'EDENRED_PIN=' \
+    - e 'EDENRED_VERSION=' \
     - e 'EDENRED_ACCOUNT_MAP=' \
     - e 'ACTUAL_ACCOUNT_MAP=' \
     - e 'ACTUAL_SERVER_URL= ' \

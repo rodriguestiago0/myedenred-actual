@@ -8,6 +8,7 @@ const ACTUAL_SERVER_PASSWORD = process.env.ACTUAL_SERVER_PASSWORD || "";
 const APP_PORT = process.env.APP_PORT || 3000;
 
 const APP_URL = process.env.APP_URL || "http://localhost"
+const EDENRED_VERSION = process.env.EDENRED_VERSION || "4.1.0";
 
 const EDENRED_USERNAME = process.env.EDENRED_USERNAME || "";
 const EDENRED_PIN = process.env.EDENRED_PIN || "";
@@ -34,6 +35,7 @@ function getAppConfigFromEnv() {
         APP_URL,
         EDENRED_USERNAME,
         EDENRED_PIN,
+        EDENRED_VERSION,
         EDENRED_ACCOUNT_MAP,
         ACTUAL_ACCOUNT_MAPPING,
         EDENRED_ACCOUNT_MAPPING,

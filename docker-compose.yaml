@@ -9,9 +9,9 @@ services:
       - PUID=1003
       - PGID=100
       - TZ=Europe/Lisbon
-      #- EDENRED_USERNAME= deprecated for now
-      #- EDENRED_PASSWORD=deprecated for now
-      - EDENRED_TOKEN=
+      - EDENRED_USERNAME=
+      - EDENRED_PIN=
+      - EDENRED_VERSION= # default 4.1.0
       - EDENRED_ACCOUNT_MAP= #comma separated vlue (Both EDENRED_ACCOUNT_MAP and ACTUAL_ACCOUNT_MAP need to have the same size)
       - ACTUAL_ACCOUNT_MAP= #comma separated vlue
       - ACTUAL_SERVER_URL= 

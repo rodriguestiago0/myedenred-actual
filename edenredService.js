@@ -11,7 +11,7 @@ const authenticate = async () => {
       appType: "IOS",
       appVersion: "4.1.0"
     };
-    const token = await fetch('https://www.myedenred.pt/edenred-customer/v2/authenticate/pin?appVersion=4.1.0&appType=IOS&channel=MOBILE', {
+    const token = await fetch('https://www.myedenred.pt/edenred-customer/v2/authenticate/pin?appVersion='+ appConfig.EDENRED_VERSION +'&appType=IOS&channel=MOBILE', {
         method: 'POST',
         body: JSON.stringify(u),
         headers: {

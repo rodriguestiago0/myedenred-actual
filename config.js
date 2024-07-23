@@ -9,9 +9,8 @@ const APP_PORT = process.env.APP_PORT || 3000;
 
 const APP_URL = process.env.APP_URL || "http://localhost"
 
-//const EDENRED_USERNAME = process.env.EDENRED_USERNAME || "";
-//const EDENRED_PASSWORD = process.env.EDENRED_PASSWORD || "";
-const EDENRED_TOKEN = process.env.EDENRED_TOKEN || "";
+const EDENRED_USERNAME = process.env.EDENRED_USERNAME || "";
+const EDENRED_PIN = process.env.EDENRED_PIN || "";
 const EDENRED_ACCOUNT_MAP = process.env.EDENRED_ACCOUNT_MAP || "";
 const ACTUAL_ACCOUNT_MAP = process.env.ACTUAL_ACCOUNT_MAP || "";
 const CRON_EXPRESSION = process.env.CRON_EXPRESSION || "";
@@ -33,9 +32,8 @@ function getAppConfigFromEnv() {
     const appConfig = {
         APP_PORT,
         APP_URL,
-        //EDENRED_USERNAME,
-        //EDENRED_PASSWORD,
-        EDENRED_TOKEN,
+        EDENRED_USERNAME,
+        EDENRED_PIN,
         EDENRED_ACCOUNT_MAP,
         ACTUAL_ACCOUNT_MAPPING,
         EDENRED_ACCOUNT_MAPPING,

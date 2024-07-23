@@ -7,14 +7,16 @@ const appConfig = getAppConfigFromEnv();
 const authenticate = async () => {
     u = {
       userId: appConfig.EDENRED_USERNAME,
-      password: appConfig.EDENRED_PASSWORD
+      password: appConfig.EDENRED_PIN,
+      appType: "IOS",
+      appVersion: "4.1.0"
     };
-    const token = await fetch('https://www.myedenred.pt/edenred-customer/v2/authenticate/default?appVersion=1.0&appType=PORTAL&channel=WEB', {
+    const token = await fetch('https://www.myedenred.pt/edenred-customer/v2/authenticate/pin?appVersion=4.1.0&appType=IOS&channel=MOBILE', {
         method: 'POST',
         body: JSON.stringify(u),
         headers: {
             'Content-type': 'application/json',
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36',
+            'User-Agent': 'EdenRED/3748 CFNetwork/1496.0.7 Darwin/23.5.0',
         },
     })
         .then((response) => response.json())
@@ -46,8 +48,8 @@ const getAllTransactions = async (token, accountId) => {
 }
 
 async function getTransactions(accountId) {
-    //authorizationToken = await authenticate()
-    transactions = await getAllTransactions(appConfig.EDENRED_TOKEN, accountId)
+    authorizationToken = await authenticate()
+    transactions = await getAllTransactions(authorizationToken, accountId)
     parsedTransactions = []
     transactions.forEach(transaction => {
         transactionID = crypto.createHash('sha256').update(transaction.transactionName+transaction.transactionDate+transaction.amount).digest('hex'); 

@@ -6,6 +6,10 @@ You need to provide your username and password and specified what the cadence yo
 
 **Note**: Pending transaction are being imported as cleared. If the transaction is deleted after you need to delete manally from the actual budget.
 
+# Get User ID
+User ID now is a `GUID` and not your email address.
+
+For `IOS` I used an app called `Proxyman` and checked the request to get the `UserID`. The `PIN` is your app `PIN`.
 
 ## Setup
 

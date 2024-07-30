@@ -12,8 +12,8 @@ const EDENRED_VERSION = process.env.EDENRED_VERSION || "4.1.0";
 
 const EDENRED_USERNAME = process.env.EDENRED_USERNAME || "";
 const EDENRED_PIN = process.env.EDENRED_PIN || "";
-const EDENRED_ACCOUNT_MAP = process.env.EDENRED_ACCOUNT_MAP || "";
-const ACTUAL_ACCOUNT_MAP = process.env.ACTUAL_ACCOUNT_MAP || "";
+const EDENRED_ACCOUNT = process.env.EDENRED_ACCOUNT || "";
+const ACTUAL_ACCOUNT = process.env.ACTUAL_ACCOUNT || "";
 const CRON_EXPRESSION = process.env.CRON_EXPRESSION || "";
 const ACTUAL_SYNC_ID = process.env.ACTUAL_SYNC_ID || "";
 
@@ -21,14 +21,27 @@ const ACTUAL_SYNC_ID = process.env.ACTUAL_SYNC_ID || "";
 function getAppConfigFromEnv() {
     var EDENRED_ACCOUNT_MAPPING = {}
     var ACTUAL_ACCOUNT_MAPPING = {}
-    var edenredSplit = EDENRED_ACCOUNT_MAP.split(',');
-    var actualSplit = ACTUAL_ACCOUNT_MAP.split(',');
-    if (edenredSplit.length != actualSplit.length) {
-        throw new Error(`Invalid accounts configs`);
+    if (!EDENRED_ACCOUNT){
+        throw new Error(`Missing environment variable: EDENRED_ACCOUNT`);
     }
-    for (var i = 0; i < edenredSplit.length; i++) {
-        EDENRED_ACCOUNT_MAPPING[edenredSplit[i]] = actualSplit[i];
-        ACTUAL_ACCOUNT_MAPPING[actualSplit[i]] = edenredSplit[i];
+    
+    if (!ACTUAL_ACCOUNT){
+        throw new Error(`Missing environment variable: ACTUAL_ACCOUNT`);
+    }
+
+    EDENRED_ACCOUNT_MAPPING[EDENRED_ACCOUNT] = ACTUAL_ACCOUNT
+    ACTUAL_ACCOUNT_MAPPING[ACTUAL_ACCOUNT] = EDENRED_ACCOUNT
+
+    var i = 1;
+    while(true){
+        edenred = process.env[`EDENRED_ACCOUNT_${i}`] || ""
+        actualSplit = process.env[`ACTUAL_ACCOUNT_${i}`] || ""
+        if (!edenred || !actualSplit) {
+            break;
+        }
+        i++;
+        EDENRED_ACCOUNT_MAPPING[edenred] = actualSplit;
+        ACTUAL_ACCOUNT_MAPPING[actualSplit] = edenred;
     }
     const appConfig = {
         APP_PORT,
@@ -36,10 +49,8 @@ function getAppConfigFromEnv() {
         EDENRED_USERNAME,
         EDENRED_PIN,
         EDENRED_VERSION,
-        EDENRED_ACCOUNT_MAP,
         ACTUAL_ACCOUNT_MAPPING,
         EDENRED_ACCOUNT_MAPPING,
-        ACTUAL_ACCOUNT_MAP,
         ACTUAL_SERVER_URL,
         ACTUAL_SERVER_PASSWORD,
         ACTUAL_SYNC_ID,

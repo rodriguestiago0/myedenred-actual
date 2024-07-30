@@ -17,8 +17,10 @@ services:
       - EDENRED_USERNAME= 
       - EDENRED_PIN= 
       - EDENRED_VERSION= # default 4.1.0
-      - EDENRED_ACCOUNT_MAP=comma separated vlue (Both EDENRED_ACCOUNT_MAP and ACTUAL_ACCOUNT_MAP need to have the same size)
-      - ACTUAL_ACCOUNT_MAP=#comma separated vlue
+      - EDENRED_ACCOUNT=
+      - ACTUAL_ACCOUNT=
+      - EDENRED_ACCOUNT_1=
+      - ACTUAL_ACCOUNT_1=
       - ACTUAL_SERVER_URL= 
       - ACTUAL_SERVER_PASSWORD=
       - ACTUAL_SYNC_ID=
@@ -31,8 +33,10 @@ docker run -d --name myedenredactual \
     - e 'EDENRED_USERNAME=' \
     - e 'EDENRED_PIN=' \
     - e 'EDENRED_VERSION=' \
-    - e 'EDENRED_ACCOUNT_MAP=' \
-    - e 'ACTUAL_ACCOUNT_MAP=' \
+    - e 'EDENRED_ACCOUNT=' \
+    - e 'ACTUAL_ACCOUNT=' \
+    - e 'EDENRED_ACCOUNT_1=' \
+    - e 'ACTUAL_ACCOUNT_1=' \
     - e 'ACTUAL_SERVER_URL= ' \
     - e 'ACTUAL_SERVER_PASSWORD=' \
     - e 'ACTUAL_SYNC_ID=' \

@@ -16,6 +16,7 @@ const EDENRED_ACCOUNT = process.env.EDENRED_ACCOUNT || "";
 const ACTUAL_ACCOUNT = process.env.ACTUAL_ACCOUNT || "";
 const CRON_EXPRESSION = process.env.CRON_EXPRESSION || "";
 const ACTUAL_SYNC_ID = process.env.ACTUAL_SYNC_ID || "";
+const IMPORT_FROM = process.env.IMPORT_FROM || "";
 
 
 function getAppConfigFromEnv() {
@@ -43,6 +44,9 @@ function getAppConfigFromEnv() {
         EDENRED_ACCOUNT_MAPPING[edenred] = actualSplit;
         ACTUAL_ACCOUNT_MAPPING[actualSplit] = edenred;
     }
+    if (IMPORT_FROM == "") {
+        IMPORT_FROM = "1970-01-01"
+    }
     const appConfig = {
         APP_PORT,
         APP_URL,
@@ -54,7 +58,8 @@ function getAppConfigFromEnv() {
         ACTUAL_SERVER_URL,
         ACTUAL_SERVER_PASSWORD,
         ACTUAL_SYNC_ID,
-        CRON_EXPRESSION
+        CRON_EXPRESSION,
+        IMPORT_FROM
     }
 
     // Assert that all required environment variables are set

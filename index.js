@@ -29,10 +29,6 @@ const cli = meow(
                 alias: "a",
                 type: "string",
             },
-            since: {
-                alias: "s",
-                type: "string",
-            },
         },
     }
 );

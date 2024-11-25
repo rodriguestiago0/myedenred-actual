@@ -1,3 +1,4 @@
+const { config } = require("dotenv");
 const { getAppConfigFromEnv } = require("./config");
 const crypto = require('crypto');
 
@@ -39,7 +40,8 @@ const getAllTransactions = async (token, accountId) => {
         },
     })
         .then((response) => response.json())
-        .then((json) => json.data.movementList)
+        .then((json) => 
+            json.data.movementList)
         .catch((err) => {
             console.error("error occured", err);
         });
@@ -55,7 +57,7 @@ async function getTransactions(accountId) {
         transactionID = crypto.createHash('sha256').update(transaction.transactionName+transaction.transactionDate+transaction.amount).digest('hex'); 
 
         date = transaction.transactionDate.split("T")[0]
-        if (date < '2024-06-21') {
+        if (date < appConfig.IMPORT_FROM) {
             return;
         }
         parsedTransactions.push({

@@ -1,4 +1,3 @@
-const { config } = require("dotenv");
 const { getAppConfigFromEnv } = require("./config");
 const crypto = require('crypto');
 

@@ -34,29 +34,6 @@ function listAccounts(actualInstance) {
     return actualInstance.getAccounts();
 }
 
-/**
- * Only works for the past month
- * @param {typeof actual} actualInstance 
- * @param {*} accountId 
- */
-async function getLastTransactionDate(actualInstance, accountId) {
-    const monthAgo = new Date();
-    monthAgo.setMonth(monthAgo.getMonth() -3);
-
-    const transactions = await actualInstance.getTransactions(accountId, monthAgo, new Date());
-
-    if (transactions.length === 0) {
-        return new Date(0);
-    }
-
-    // Transactions of the day are already imported, so start from the next day.
-    const last = new Date(transactions[0].date);
-    last.setDate(last.getDate() + 1);
-
-    return last;
-}
-
-
 async function importTransactions(actualInstance, accountId, transactions) {
     console.info("Importing transactions raw data START:")
     console.debug(transactions)
@@ -65,14 +42,6 @@ async function importTransactions(actualInstance, accountId, transactions) {
         transactions
     );
     console.info("Actual logs: ", actualResult);
-}
-
-async function getBalance(actualInstance, accountId) {
-    const balance = await actualInstance.runQuery(q('transactions')
-        .filter({ account: accountId })
-        //.options({ splits: 'inline' })
-        .calculate({ $sum: '$amount' }),)
-    return balance.data;
 }
 
 /**
@@ -87,8 +56,6 @@ async function finalize(actualInstance) {
 module.exports = {
     initialize,
     listAccounts,
-    getLastTransactionDate,
     importTransactions,
-    finalize,
-    getBalance
+    finalize
 }

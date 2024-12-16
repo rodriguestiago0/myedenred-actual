@@ -65,10 +65,10 @@ async function getTransactions(accountId) {
             payee_name: transaction.transactionName,
             imported_payee: transaction.transactionName,
             imported_id: transactionID,
+            notes: transaction.transactionName,
             cleared: true,
         })
     });
-    
 
     return parsedTransactions
 }

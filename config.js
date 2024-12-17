@@ -17,6 +17,7 @@ const ACTUAL_ACCOUNT = process.env.ACTUAL_ACCOUNT || "";
 const CRON_EXPRESSION = process.env.CRON_EXPRESSION || "";
 const ACTUAL_SYNC_ID = process.env.ACTUAL_SYNC_ID || "";
 const IMPORT_FROM = process.env.IMPORT_FROM || "";
+const ADD_PAYEE_TO_TRANSACTION_NOTES = process.env.ADD_PAYEE_TO_TRANSACTION_NOTES === 'true';
 
 
 function getAppConfigFromEnv() {
@@ -59,7 +60,8 @@ function getAppConfigFromEnv() {
         ACTUAL_SERVER_PASSWORD,
         ACTUAL_SYNC_ID,
         CRON_EXPRESSION,
-        IMPORT_FROM
+        IMPORT_FROM,
+        ADD_PAYEE_TO_TRANSACTION_NOTES
     }
 
     // Assert that all required environment variables are set
